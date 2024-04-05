@@ -1,0 +1,23 @@
+@font-face {
+    font-family: "icons";
+    src: url("./icons.ttf?0bf36e0e27566e499e73a8e84b948d28") format("truetype");
+}
+
+i[class^="icon-"]:before,
+i[class*=" icon-"]:before {
+    font-family: icons !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-location:before {
+    content: "\f101";
+}
+.icon-user:before {
+    content: "\f102";
+}
