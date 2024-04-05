@@ -22,7 +22,6 @@ const PurchasesScreen: React.FC = () => {
   const [imageUndownloadId, setImageUndownloadId] = useState<string[]>([]);
   async function getAllPurchase() {
     const response = (await PurchaseService.listPurchases()).data;
-    // console.log(response.purchases);
     setPurchases(response.purchases);
   }
 
@@ -57,7 +56,6 @@ const PurchasesScreen: React.FC = () => {
 
     // Use o método format para formatar a data
     const formattedDate = dateTimeFormat.format(date);
-    // console.log(item.product);
     return (
       <ScrollView
         contentContainerStyle={{
@@ -127,8 +125,7 @@ const PurchasesScreen: React.FC = () => {
       </ScrollView>
     );
   }
-  console.log(purchases);
-  return purchases == null ? (
+  return purchases?.length == 0 ? (
     <>
       <TouchableOpacity
         style={{

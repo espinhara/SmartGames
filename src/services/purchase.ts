@@ -12,7 +12,6 @@ export default class Purchases {
     }
 
     static savePurchase = async (model: any) => {
-        console.log(model)
         const data = await api.post(`${serverUrl}purchases`, model)
         return data
     }

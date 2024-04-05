@@ -5,7 +5,6 @@ import StoreAddress from '../../types/storyAddress';
 import {ScrollView} from 'react-native-gesture-handler';
 
 const StoreMap = ({stores}: {stores: StoreAddress[]}) => {
-  // console.log(stores);
   return (
     <View
       style={{

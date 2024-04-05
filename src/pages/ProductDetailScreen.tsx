@@ -118,7 +118,6 @@ const ProductDetailScreen: React.FC<ProductDetailScreenProps> = ({route}) => {
   function handlePucharse(item: Product): void {
     PurchaseService.savePurchase({product: item, discount: '0'})
       .then(res => {
-        console.log(res);
         if (res.status == 200) {
           navigation.goBack();
         }
