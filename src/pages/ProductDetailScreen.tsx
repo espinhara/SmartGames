@@ -14,6 +14,8 @@ import {ParamListBase, useNavigation} from '@react-navigation/native';
 import StoreMap from '../components/GMaps';
 import {Product} from '../types/product';
 
+import PurchaseService from '../services/purchase';
+
 type ProductDetailScreenProps = StackScreenProps<
   ParamListBase,
   'ProductDetailScreen'
@@ -84,6 +86,7 @@ const ProductDetailScreen: React.FC<ProductDetailScreenProps> = ({route}) => {
               Plataformas: {product.platforms}
             </Text>
             <TouchableOpacity
+              onPress={() => handlePucharse(product)}
               style={{backgroundColor: '#63B3ED', padding: 10, marginTop: 20}}>
               <Text style={{color: 'white', textAlign: 'center'}}>Comprar</Text>
             </TouchableOpacity>
@@ -111,6 +114,18 @@ const ProductDetailScreen: React.FC<ProductDetailScreenProps> = ({route}) => {
         </View>
       </>
     );
+  }
+  function handlePucharse(item: Product): void {
+    PurchaseService.savePurchase({product: item, discount: '0'})
+      .then(res => {
+        console.log(res);
+        if (res.status == 200) {
+          navigation.goBack();
+        }
+      })
+      .catch(e => {
+        console.log(e);
+      });
   }
 };
 

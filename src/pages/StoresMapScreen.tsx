@@ -25,7 +25,7 @@ export default function StoresMapScreen({route}: StoresMapScreenScreenProps) {
         <Icon name="arrow-back-outline" size={25} />
         <Text style={{fontSize: 18}}> Voltar</Text>
       </TouchableOpacity>
-      <StoreMap stores={stores} linkImage={linkImage} />
+      <StoreMap stores={stores} />
     </>
   );
 }
